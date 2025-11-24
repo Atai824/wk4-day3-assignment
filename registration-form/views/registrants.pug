@@ -1,15 +1,18 @@
 extends layout
 
 block content
+  main
+    .container
+      h2 Listing registrations
 
-    if registrations.length
-        table.listing-table.table-dark.table-striped
+      if registrations.length
+        table.listing-table.table.table-dark.table-striped
+          tr
+            th Name
+            th Email
+          each registration in registrations
             tr
-                th Name
-                th Email
-            each registration in registrations
-                tr
-                    td= registration.name
-                    td= registration.email
-    else
+              td= registration.name
+              td= registration.email
+      else
         p No registrations yet :(

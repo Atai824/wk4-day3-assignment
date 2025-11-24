@@ -2,25 +2,27 @@
 /* SCSS */
 nav {
   font-size: 1em;
-  font-font-weight: bold;
+  font-weight: bold; /* исправил опечатку */
   float: left;
 }
+
 nav ul {
   list-style-type: none;
 }
+
 nav ul li {
   float: left;
   margin: 0 5px 0 0;
   color: rgb(255, 255, 255);
 }
+
 nav ul li a {
   text-decoration: none;
+  color: rgb(255, 255, 255);
 }
+
 nav ul li a:hover {
   text-decoration: underline;
-}
-nav ul li a {
-  color: rgb(255, 255, 255);
 }
 
 /* Variables */
@@ -38,34 +40,50 @@ header {
   height: 50px;
   width: 1350px;
   margin: 0.8em auto 1em auto;
+  position: relative;
 }
 
 main {
   background: rgb(255, 255, 255);
   width: 1350px;
-  min-height: 535px;
-  padding: 1.5%;
+  padding: 10px 20px;   /* вместо 1.5% — аккуратная рамка */
   margin: 0 auto;
 }
+
+/* clearfix, чтобы main оборачивал оба float-блока */
+main::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 main #intro-image {
   float: left;
-  width: 800px;
+  width: 799px;
 }
+
+/* Картинка занимает всю ширину блока и по высоте равна серому блоку */
 main #intro-image img {
-  width: 800px;
+  width: 100%;
+  height: 407px;
+  object-fit: cover;   /* аккуратное обрезание */
+  display: block;      /* убираем возможные пробелы снизу */
 }
+
 main #intro-text {
-  width: 550px;
+  width: 510px;
   height: 407px;
   float: left;
   background: rgb(212, 213, 216);
   text-align: center;
   padding-top: 8em;
 }
+
 main #intro-text h3 {
   font-size: 2em;
   color: rgb(49, 49, 48);
 }
+
 main #intro-text span {
   font-family: "Sacramento", cursive;
   font-size: 2em;
@@ -78,7 +96,8 @@ footer {
   font-size: 0.85em;
 }
 
-button, .submit-buttton {
+button,
+.submit-buttton {
   color: rgb(255, 255, 255);
   width: 100px;
   height: 40px;
@@ -88,6 +107,24 @@ button, .submit-buttton {
 
 .submit-buttton {
   border: 1px rgb(49, 49, 48);
+}
+
+.form-registration {
+  max-width: 400px;
+  margin: 2em auto 0 auto;
+  text-align: left;
+}
+
+.my-errors {
+  color: red;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1em;
+}
+
+.nav-right {
+  float: right;
+  margin-right: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */
