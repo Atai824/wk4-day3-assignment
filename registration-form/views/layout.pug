@@ -2,11 +2,10 @@ doctype html
 html
   head
     title= `${title}`
+    link(rel='preconnect', href='https://fonts.gstatic.com')
+    link(href='https://fonts.googleapis.com/css2?family=Sacramento&display=swap', rel='stylesheet')
     link(rel='stylesheet', href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/css/styles.css')
 
   body
-    div.container.listing-reg
-      h1 My Amazing App
-
-      block content
+    block content
