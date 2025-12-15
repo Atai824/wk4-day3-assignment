@@ -1,13 +1,18 @@
-/* Nesting */
-/* SCSS */
+/* =========================
+   Base / Navigation
+   ========================= */
+
 nav {
   font-size: 1em;
-  font-weight: bold; /* исправил опечатку */
+  font-weight: bold;
   float: left;
+  width: 100%;
 }
 
 nav ul {
   list-style-type: none;
+  padding-left: 0;
+  margin: 0;
 }
 
 nav ul li {
@@ -25,7 +30,10 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Variables */
+/* =========================
+   Global
+   ========================= */
+
 html {
   font-size: 1em;
   width: 100%;
@@ -34,6 +42,7 @@ html {
 body {
   font-family: Arial, Helvetica, Sans-Serif;
   background: rgb(218, 170, 14);
+  margin: 0;
 }
 
 header {
@@ -46,28 +55,49 @@ header {
 main {
   background: rgb(255, 255, 255);
   width: 1350px;
-  padding: 10px 20px;   /* вместо 1.5% — аккуратная рамка */
+  min-height: 535px;
+  padding: 10px 20px;
   margin: 0 auto;
 }
 
-/* clearfix, чтобы main оборачивал оба float-блока */
+/* clearfix */
 main::after {
   content: "";
   display: block;
   clear: both;
 }
 
+footer {
+  width: 1350px;
+  margin: 2em auto;
+  padding-left: 80px;
+  font-size: 0.85em;
+  color: rgb(49, 49, 48);
+}
+
+nav ul {
+  width: 100%;
+}
+
+.nav-right {
+  float: right !important;
+}
+
+
+/* =========================
+   HOME page layout (original)
+   ========================= */
+
 main #intro-image {
   float: left;
   width: 799px;
 }
 
-/* Картинка занимает всю ширину блока и по высоте равна серому блоку */
 main #intro-image img {
   width: 100%;
   height: 407px;
-  object-fit: cover;   /* аккуратное обрезание */
-  display: block;      /* убираем возможные пробелы снизу */
+  object-fit: cover;
+  display: block;
 }
 
 main #intro-text {
@@ -82,20 +112,17 @@ main #intro-text {
 main #intro-text h3 {
   font-size: 2em;
   color: rgb(49, 49, 48);
+  margin: 0.2em 0 0.4em;
 }
 
 main #intro-text span {
   font-family: "Sacramento", cursive;
   font-size: 2em;
+  display: block;
+  margin-bottom: 0.35em;
 }
 
-footer {
-  width: 1350px;
-  margin: 2em auto;
-  padding-left: 80px;
-  font-size: 0.85em;
-}
-
+/* Buttons (home) */
 button,
 .submit-buttton {
   color: rgb(255, 255, 255);
@@ -103,28 +130,86 @@ button,
   height: 40px;
   background: rgb(218, 170, 14);
   margin-top: 2em;
+  border: none;
 }
 
 .submit-buttton {
-  border: 1px rgb(49, 49, 48);
+  border: 1px solid rgb(49, 49, 48);
 }
 
-.form-registration {
-  max-width: 400px;
-  margin: 2em auto 0 auto;
-  text-align: left;
-}
+/* =========================
+   Errors
+   ========================= */
 
 .my-errors {
   color: red;
   list-style: none;
   padding-left: 0;
-  margin-bottom: 1em;
+  margin: 0 auto 10px auto;
 }
 
-.nav-right {
-  float: right;
-  margin-right: 20px;
+/* =========================
+   REGISTER page (match slide)
+   Works with your current form.pug:
+   - left: section#intro-text (grey)
+   - right: section.register-right
+   ========================= */
+
+/* left grey card on register page (same as slide) */
+#intro-text.register-left {
+  padding-top: 7.5em;   /* чтобы текст был по центру как на слайде */
+}
+
+/* right column */
+.register-right {
+  float: left;
+  width: 550px;
+  padding-top: 70px;
+}
+
+/* title on right */
+.register-right h3 {
+  text-align: center;
+  font-size: 1.6em;      /* не огромный */
+  font-weight: 700;
+  margin: 0 0 18px 0;
+  color: rgb(49, 49, 48);
+}
+
+/* narrow centered form like slide */
+.register-right .form-registration {
+  max-width: 280px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* labels + inputs */
+.register-right .form-registration label {
+  display: block;
+  margin: 12px 0 6px;
+  color: rgb(49, 49, 48);
+  font-size: 0.95em;
+}
+
+.register-right .form-registration input[type="text"],
+.register-right .form-registration input[type="email"],
+.register-right .form-registration input[type="password"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  border: 1px solid #999;
+}
+
+/* register button: yellow + narrow */
+.register-right .form-registration input[type="submit"] {
+  width: 100%;
+  margin-top: 16px;
+  background: rgb(218, 170, 14);
+  border: none;
+  color: #fff;
+  height: 30px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -2,9 +2,15 @@ extends layout
 
 block content
   main
-    section#intro-text
+    // left grey card (like slide)
+    section#intro-text.register-left
       span Simple Kitchen
-      h3 Registration form
+      p Simple & Comforting
+      p Recipes All Year Round
+
+    // right side form
+    section.register-right
+      h3 Register to subscribe
 
       - data = data || {}
 
@@ -20,4 +26,10 @@ block content
         label(for="email") Email:
         input(type="email" id="email" name="email" value=data.email)
 
-        input(type="submit" value="Submit" class="btn btn-lg btn-primary btn-block")
+        label(for="username") Username:
+        input(type="text" id="username" name="username" value=data.username)
+
+        label(for="password") Password:
+        input(type="password" id="password" name="password")
+
+        input(type="submit" value="Register" class="submit-buttton")
