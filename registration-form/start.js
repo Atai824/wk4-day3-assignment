@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 
 mongoose.connect(process.env.DATABASE);
 
+console.log('DB URI:', process.env.DATABASE);
+
+
 mongoose.connection
   .on('open', () => {
     console.log('Mongoose connection open');
